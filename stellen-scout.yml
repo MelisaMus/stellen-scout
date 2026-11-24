@@ -1,0 +1,61 @@
+name: Stellen-Scout
+
+on:
+  schedule:
+    - cron: "45 5 * * 1-5"   # werktags 05:45 UTC = 06:45 (Winter) bzw. 07:45 (Sommer) in Deutschland
+  workflow_dispatch:          # zusätzlich per Knopfdruck unter "Actions" startbar
+
+permissions:
+  contents: read
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      # Die Datenbank wird zwischen den Läufen im Actions-Cache aufbewahrt,
+      # damit nur neue Stellen gemeldet werden.
+      - name: Datenbank wiederherstellen
+        uses: actions/cache/restore@v4
+        with:
+          path: data/stellen.sqlite
+          key: stellen-db-${{ github.run_id }}
+          restore-keys: stellen-db-
+
+      - name: Konfiguration bereitstellen
+        run: |
+          if [ ! -f config.json ]; then cp config.example.json config.json; fi
+
+      - name: Stellen suchen
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: python -m stellen_scout --config config.json
+
+      - name: Datenbank sichern
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: data/stellen.sqlite
+          key: stellen-db-${{ github.run_id }}
+
+      - name: Bericht hochladen
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bericht-${{ github.run_number }}
+          path: reports/
+          retention-days: 30

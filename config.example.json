@@ -1,0 +1,87 @@
+{
+  "search_terms": [
+    "Data Reporting",
+    "Datenmanagement",
+    "Datenanalyst",
+    "Controller",
+    "Business Intelligence",
+    "Prozessmanagement",
+    "Referent Digitalisierung",
+    "Qualitätsmanagement",
+    "Hochschulcontrolling",
+    "Wissenschaftsmanagement",
+    "Forschungsförderung",
+    "Graduiertenkolleg",
+    "Projektmanager",
+    "Projektleitung",
+    "Projektkoordination",
+    "PMO",
+    "Wissensmanagement"
+  ],
+
+  "bundesagentur": {
+    "enabled": true,
+    "location": "Freiburg im Breisgau",
+    "radius_km": 50,
+    "published_within_days": 7,
+    "include_temp_agencies": false,
+    "page_size": 50,
+    "max_pages": 2
+  },
+
+  "sources": [
+    {
+      "_hinweis": "Beispiel für eine Stellenliste auf einer Webseite. URL eintragen und enabled auf true setzen. Ohne Selektoren werden Links genommen, die nach Stellenanzeigen aussehen.",
+      "name": "Stellenportal Beispiel-Hochschule",
+      "type": "html",
+      "url": "https://www.example.org/stellenangebote",
+      "employer": "Beispiel-Hochschule",
+      "location": "Freiburg im Breisgau",
+      "enabled": false
+    },
+    {
+      "_hinweis": "Beispiel für einen RSS-Feed. Viele Portale bieten einen an (Symbol oder Link 'RSS').",
+      "name": "RSS-Feed Beispielportal",
+      "type": "rss",
+      "url": "https://www.example.org/jobs/feed.xml",
+      "location": "",
+      "enabled": false
+    }
+  ],
+
+  "scoring": {
+    "title_keywords": {
+      "data": 3, "daten": 3, "reporting": 3, "berichtswesen": 3, "controlling": 3, "controller": 3,
+      "analyst": 3, "business intelligence": 3, "wissenschaftsmanagement": 3, "hochschulcontrolling": 3,
+      "digitalisierung": 2, "prozess": 2, "qualitätsmanagement": 2, "forschungsförderung": 2,
+      "graduiertenkolleg": 2, "graduiertenschule": 2, "referent": 1, "koordinat": 1,
+      "projektmanage": 2, "projektleit": 2, "pmo": 2, "wissensmanagement": 2,
+      "leitung": 1
+    },
+    "text_keywords": {
+      "sql": 1, "python": 1, "power bi": 1, "sap": 1, "kennzahlen": 1, "dashboard": 1,
+      "tv-l": 1, "drittmittel": 1, "hisinone": 2
+    },
+    "employer_keywords": {
+      "universität": 1, "hochschule": 1, "klinikum": 1, "fraunhofer": 1, "max-planck": 1, "institut": 1
+    },
+    "exclude_title": [
+      "praktikum", "praktikant", "werkstudent", "ausbildung", "azubi", "minijob", "aushilfe",
+      "trainee", "softwareentwickler", "developer", "ingenieur", "arzt", "ärztin", "pflege"
+    ],
+    "thresholds": {"hoch": 6, "mittel": 3},
+    "min_fit": "mittel"
+  },
+
+  "ai": {
+    "enabled": false,
+    "model": "claude-haiku-5-5",
+    "max_jobs_per_run": 15,
+    "profile": "BEISPIEL, bitte durch das eigene Kurzprofil ersetzen: Mehrjährige Berufserfahrung in Controlling und Berichtswesen im öffentlichen Dienst, Erfahrung in Projektkoordination. Kenntnisse in SQL, Python und Excel. Sucht eine Stelle mit Schwerpunkt Daten, Reporting oder Projektmanagement."
+  },
+
+  "report": {
+    "show_already_seen": false,
+    "send_when_empty": false
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "_hinweis": "Fiktive Beispieldaten im Format der Jobsuche-Schnittstelle (Version 6), nur für --demo und Tests. Arbeitgeber und Stellen sind erfunden.",
+  "ergebnisliste": [
+    {
+      "referenznummer": "DEMO-0001",
+      "stellenangebotsTitel": "Data & Reporting Specialist (m/w/d)",
+      "hauptberuf": "Data-Analyst/in",
+      "alleBerufe": ["Data-Analyst/in"],
+      "firma": "Beispiel Chemie GmbH",
+      "stellenlokationen": [{"adresse": {"plz": "79108", "ort": "Freiburg im Breisgau"}}],
+      "veroeffentlichungszeitraum": {"von": "2026-11-16"},
+      "verguetungsangabe": "JAHRESGEHALT",
+      "gehaltsspanneVon": 58000.0,
+      "gehaltsspanneBis": 72000.0,
+      "vertragsdauer": "UNBEFRISTET"
+    },
+    {
+      "referenznummer": "DEMO-0002",
+      "stellenangebotsTitel": "Referent*in für Hochschulcontrolling und Berichtswesen",
+      "hauptberuf": "Controller/in",
+      "firma": "Musterhochschule Breisgau",
+      "stellenlokationen": [{"adresse": {"plz": "79098", "ort": "Freiburg im Breisgau"}}],
+      "veroeffentlichungszeitraum": {"von": "2026-11-16"},
+      "vertragsdauer": "BEFRISTET"
+    },
+    {
+      "referenznummer": "DEMO-0003",
+      "stellenangebotsTitel": "Referentin für Hochschulcontrolling und Berichtswesen (w/m/d)",
+      "hauptberuf": "Controller/in",
+      "firma": "Musterhochschule Breisgau",
+      "stellenlokationen": [{"adresse": {"plz": "79098", "ort": "Freiburg"}}],
+      "veroeffentlichungszeitraum": {"von": "2026-11-15"}
+    },
+    {
+      "referenznummer": "DEMO-0004",
+      "stellenangebotsTitel": "Koordinator/in Graduiertenkolleg Wissenschaftsmanagement",
+      "hauptberuf": "Wissenschaftsmanager/in",
+      "firma": "Forschungsinstitut Musterwald e.V.",
+      "stellenlokationen": [{"adresse": {"plz": "79104", "ort": "Freiburg im Breisgau"}}],
+      "veroeffentlichungszeitraum": {"von": "2026-11-14"},
+      "vertragsdauer": "BEFRISTET_MIT_OPTION"
+    },
+    {
+      "referenznummer": "DEMO-0005",
+      "stellenangebotsTitel": "Projektmanager Digitalisierung (m/w/d)",
+      "hauptberuf": "Projektmanager/in",
+      "firma": "Stadtwerke Beispielstadt",
+      "stellenlokationen": [{"adresse": {"plz": "79312", "ort": "Emmendingen"}}],
+      "veroeffentlichungszeitraum": {"von": "2026-11-16"},
+      "vertragsdauer": "UNBEFRISTET"
+    },
+    {
+      "referenznummer": "DEMO-0006",
+      "stellenangebotsTitel": "Praktikum im Bereich Datenanalyse",
+      "hauptberuf": "Praktikant/in",
+      "firma": "Beispiel Chemie GmbH",
+      "stellenlokationen": [{"adresse": {"plz": "79108", "ort": "Freiburg im Breisgau"}}],
+      "veroeffentlichungszeitraum": {"von": "2026-11-16"}
+    },
+    {
+      "referenznummer": "DEMO-0007",
+      "stellenangebotsTitel": "Sachbearbeiter Einkauf (m/w/d)",
+      "hauptberuf": "Kaufmann/-frau",
+      "firma": "Handel Muster KG",
+      "stellenlokationen": [{"adresse": {"plz": "79539", "ort": "Lörrach"}}],
+      "veroeffentlichungszeitraum": {"von": "2026-11-13"}
+    }
+  ],
+  "maxErgebnisse": 7,
+  "page": 1,
+  "size": 50
+}
